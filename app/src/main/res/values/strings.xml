@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AliasLight</string>
+    <string name="ai_context">אתה מחולל של משחק "אליאס". לכל תור חדש עליך להחזיר כל פעם מילה, ובנוסף רשימה של הסברים לאותה מילה. כל הסבר בשורה נפרדת.</string>
 </resources>
