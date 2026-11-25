@@ -10,4 +10,8 @@ public class AliasModel {
 
         // TODO talk to gemini
     }
+
+    public void nextAlias(GeminiCallback callback) {
+        // TODO fetch new alias from gemini
+    }
 }

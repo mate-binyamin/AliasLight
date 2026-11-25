@@ -3,41 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
     <TextView
         android:id="@+id/tvHints"
-        android:layout_width="279dp"
-        android:layout_height="245dp"
+        android:layout_width="307dp"
+        android:layout_height="288dp"
+        android:layout_marginTop="136dp"
         android:background="#E6D9D9"
         android:text="רמזים"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="243dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="40dp"
         android:text="הבא בתור"
-        app:layout_constraintBottom_toTopOf="@+id/etAlias"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.788"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAlias" />
 
     <EditText
         android:id="@+id/etAlias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="תשובה"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/tvHints"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.671"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.741"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

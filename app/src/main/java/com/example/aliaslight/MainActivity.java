@@ -15,10 +15,6 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.aliaslight.ui.main.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnNext;
-    TextView tvHints;
-    EditText etAlias;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

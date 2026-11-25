@@ -123,6 +123,7 @@ public class GeminiManager {
 
     public void startChat() {
         chat = gemini.startChat(Collections.emptyList());
+        Log.d("CHAT", chat.toString());
 
     }
 
@@ -139,6 +140,14 @@ public class GeminiManager {
                 handleResult(result, callback);
             }
         });
+    }
+
+    public void sendChatMessage(String prompt, GeminiCallback callback) {
+        sendChatMessage(
+                prompt,
+                EmptyCoroutineContext.INSTANCE,
+                callback
+        );
     }
 
 //    // private constructor
