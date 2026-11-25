@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +49,7 @@ public class MainFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         bind = FragmentMainBinding.inflate(
                 inflater, container, false);
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return bind.getRoot();
     }
 
     @Override
@@ -80,7 +81,8 @@ public class MainFragment extends Fragment {
 
     private void initListeners() {
         bind.btnNext.setOnClickListener(v->{
-            String alias = bind.btnNext.getText().toString();
+            String alias = bind.etAlias.getText().toString();
+            Log.d("ALIAS", alias);
             if (alias.isBlank()) { // no answer yet
                 vm.nextHint();
             } else {

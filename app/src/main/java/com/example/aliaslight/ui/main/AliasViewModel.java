@@ -27,7 +27,7 @@ public class AliasViewModel extends AndroidViewModel {
 
     private MutableLiveData<Boolean> success = new MutableLiveData<>();
 
-    private ArrayList<String> hintsFull;
+    private ArrayList<String> hintsFull = new ArrayList<>();
     private int i = 0;
 
 
