@@ -65,7 +65,9 @@ public class MainFragment extends Fragment {
 
     private void initObservers() {
         vm.getHints().observe(getViewLifecycleOwner(), hints -> {
+            Log.d("observer", "");
             String text = String.join("\n", hints);
+            Log.d("observer|hints:", text);
             bind.tvHints.setText(text);
         });
 

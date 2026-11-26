@@ -36,6 +36,8 @@ public class AliasViewModel extends AndroidViewModel {
 //        model = new AliasModel(app);
         gm = GeminiManager.getInstance(app);
         gm.startChat();
+        hints.setValue(new ArrayList<>());
+
         nextAlias();
     }
 
@@ -48,6 +50,8 @@ public class AliasViewModel extends AndroidViewModel {
         if (i < hintsFull.size()) { // note - if there are hints on the way - this will not execute
             String nextHint = hintsFull.get(i++);
             hints.getValue().add(nextHint);
+            hints.setValue(new ArrayList<>(hints.getValue()));
+
 
             if (i == hintsFull.size()) { // finished all hints!
                 moreHints();
@@ -81,10 +85,11 @@ public class AliasViewModel extends AndroidViewModel {
     }
 
     private void nextAlias() {
+        success.setValue(null);
+
         gm.sendChatMessage("הבא בתור", new GeminiCallback() {
             @Override
             public void onSuccess(String result) {
-                success.setValue(null);
                 Log.d("ALIAS AND HINTS", result);
                 String[] lines = result.split(NL_REGEX);
                 alias.setValue(lines[0]);
@@ -93,7 +98,6 @@ public class AliasViewModel extends AndroidViewModel {
 
             @Override
             public void onError(Throwable error) {
-                success.setValue(null);
                 Log.e("NEXT FAILED", error.toString());
             }
         });
@@ -102,6 +106,7 @@ public class AliasViewModel extends AndroidViewModel {
     private void setNewHints(String[] hints) {
         hintsFull.clear();
         addHints(hints);
+        i = 0;
         nextHint();
     }
 

@@ -27,16 +27,17 @@ import kotlin.coroutines.CoroutineContext;
 import kotlin.coroutines.EmptyCoroutineContext;
 
 public class GeminiManager {
-    private static final String MODEL_VERSION = "gemini-2.5-flash";
+    private static final String MODEL_VERSION = "gemini-3.5-flash-lite";
 
     private static GeminiManager instance;
     private GenerativeModel gemini;
     private Chat chat;
 
-    // System prompt - a constant background for the AI to be accompanied by every prompt
-    private String SYSTEM_PROMPT = "";
-
-
+    /**
+     *
+     * @param API_KEY the key to using ai services by google
+     * @param systemPrompt a constant background for the AI to be accompanied by every prompt
+     */
     private GeminiManager(String API_KEY, String systemPrompt) {
         List<Part> parts = new ArrayList<>();
         parts.add(new TextPart(systemPrompt));
@@ -72,7 +73,7 @@ public class GeminiManager {
         return instance;
     }
 
-    public void sendMessage(String prompt, GeminiCallback cb) {
+    public void sendMessage(String prompt, GeminiCallback gcb) {
         gemini.generateContent(prompt,
                 new Continuation<GenerateContentResponse>() {
                     @NonNull
@@ -83,7 +84,7 @@ public class GeminiManager {
 
                     @Override
                     public void resumeWith(@NonNull Object result) {
-                        handleResult(result, cb);
+                        handleResult(result, gcb);
                     }
                 });
     }
